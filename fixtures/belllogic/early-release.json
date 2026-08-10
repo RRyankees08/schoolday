@@ -1,0 +1,17 @@
+{
+  "schedule_id": "early-release-a",
+  "schedule_name": "Early Release A Day",
+  "day_type": "A · Early release",
+  "is_school_day": true,
+  "periods": [
+    { "id": "ER1", "label": "AP Physics 2", "starts": "08:15", "ends": "09:13" },
+    {
+      "id": "ER2",
+      "label": "Engineering Fabrication",
+      "starts": "09:18",
+      "ends": "10:16"
+    },
+    { "id": "ER4", "label": "AP Government", "starts": "10:21", "ends": "11:19" },
+    { "id": "ER5", "label": "English 12 Honors", "starts": "11:24", "ends": "12:22" }
+  ]
+}

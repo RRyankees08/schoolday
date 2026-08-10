@@ -1,0 +1,18 @@
+{
+  "schedule_id": "regular-a",
+  "schedule_name": "Regular A Day",
+  "day_type": "A",
+  "is_school_day": true,
+  "periods": [
+    { "id": "A1", "label": "AP Physics 2", "starts": "08:15", "ends": "09:47" },
+    {
+      "id": "A2",
+      "label": "Engineering Fabrication",
+      "starts": "09:52",
+      "ends": "11:24"
+    },
+    { "id": "AL", "label": "Lunch", "starts": "11:24", "ends": "11:59" },
+    { "id": "A4", "label": "AP Government", "starts": "11:59", "ends": "13:31" },
+    { "id": "A5", "label": "English 12 Honors", "starts": "13:36", "ends": "15:08" }
+  ]
+}

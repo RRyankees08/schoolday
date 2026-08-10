@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest a focused improvement to SchoolDay.
+title: '[Feature]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the student problem first, then the proposed solution. Do not include private school data or credentials.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Student problem
+      description: What is difficult today, and who experiences it?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful solution and any alternatives considered.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Privacy and deployment impact
+      description: Does this add data collection, credentials, network exposure, migrations, or new infrastructure?
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This request supports SchoolDay's daily briefing rather than replacing Canvas, StudentVUE, Bell-Logic, or a full planner.
+          required: true
+        - label: I did not include real student data, school identifiers, or credentials.
+          required: true

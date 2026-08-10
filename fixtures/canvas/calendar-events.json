@@ -1,0 +1,10 @@
+[
+  {
+    "id": "canvas-event-1",
+    "title": "Engineering capstone team check-in",
+    "start_at": "2026-08-10T15:20:00-07:00",
+    "end_at": "2026-08-10T15:40:00-07:00",
+    "course_id": 4104,
+    "html_url": "https://canvas.example.edu/calendar?event=canvas-event-1"
+  }
+]

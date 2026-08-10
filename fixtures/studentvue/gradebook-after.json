@@ -1,0 +1,111 @@
+{
+  "captured_at": "2026-08-10T09:09:00-07:00",
+  "grading_period": "Quarter 1",
+  "courses": [
+    {
+      "class_id": "SV-PHY2",
+      "course_title": "AP PHYSICS 2",
+      "teacher_name": "Dr. Ortega",
+      "period": "1",
+      "grade": { "percentage": 91.8, "letter": "A-" },
+      "assignments": [
+        {
+          "item_id": "SV-PHY-Q1",
+          "title": "Electromagnetic Induction Quiz",
+          "points_earned": 17,
+          "points_possible": 20,
+          "percentage": 85,
+          "is_missing": false,
+          "is_excused": false,
+          "graded_at": "2026-08-10T08:02:00-07:00"
+        },
+        {
+          "item_id": "SV-PHY-HW1",
+          "title": "Magnetic Fields Problem Set",
+          "points_earned": 18,
+          "points_possible": 20,
+          "percentage": 90,
+          "is_missing": false,
+          "is_excused": false,
+          "graded_at": "2026-08-05T14:20:00-07:00"
+        }
+      ]
+    },
+    {
+      "class_id": "SV-GOV",
+      "course_title": "AP GOVERNMENT",
+      "teacher_name": "Ms. Bennett",
+      "period": "4",
+      "grade": { "percentage": 94.2, "letter": "A" },
+      "assignments": [
+        {
+          "item_id": "SV-GOV-FRQ",
+          "title": "FRQ: Civil Liberties",
+          "points_earned": 9,
+          "points_possible": 10,
+          "percentage": 90,
+          "is_missing": false,
+          "is_excused": false,
+          "graded_at": "2026-08-10T07:54:00-07:00"
+        }
+      ]
+    },
+    {
+      "class_id": "SV-CALC",
+      "course_title": "AP CALCULUS BC",
+      "teacher_name": "Mr. Shah",
+      "period": "1B",
+      "grade": { "percentage": 90.7, "letter": "A-" },
+      "assignments": [
+        {
+          "item_id": "SV-CALC-INT",
+          "title": "Applications of Integration Practice",
+          "points_earned": 10,
+          "points_possible": 10,
+          "percentage": 100,
+          "is_missing": false,
+          "is_excused": false,
+          "graded_at": "2026-08-09T18:24:00-07:00"
+        }
+      ]
+    },
+    {
+      "class_id": "SV-ENGR",
+      "course_title": "ENGINEERING FABRICATION",
+      "teacher_name": "Mr. Alvarez",
+      "period": "2",
+      "grade": { "percentage": 97, "letter": "A" },
+      "assignments": [
+        {
+          "item_id": "SV-ENGR-SAFE",
+          "title": "Shop Safety Reflection",
+          "points_earned": null,
+          "points_possible": 15,
+          "percentage": null,
+          "is_missing": true,
+          "is_excused": false,
+          "graded_at": null
+        }
+      ]
+    },
+    {
+      "class_id": "SV-ENG12",
+      "course_title": "ENGLISH 12 HONORS",
+      "teacher_name": "Ms. Holloway",
+      "period": "5",
+      "grade": { "percentage": 88.6, "letter": "B+" },
+      "assignments": [
+        {
+          "item_id": "SV-ENG12-SEMINAR",
+          "title": "Socratic Seminar Preparation",
+          "points_earned": 19,
+          "points_possible": 20,
+          "percentage": 95,
+          "is_missing": false,
+          "is_excused": false,
+          "graded_at": "2026-08-07T12:15:00-07:00"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+.git
+.github
+.svelte-kit
+build
+coverage
+data
+node_modules
+
+# Never send local configuration or persisted school data to the build daemon.
+.env*
+.dev.vars*
+*.sqlite*
+
+.DS_Store
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# These are useful in the source tree but are not required to build the app.
+tests
+scripts
+README.md
+SchoolDay — Product & Implementation Specification.md

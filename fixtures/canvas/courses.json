@@ -1,0 +1,17 @@
+[
+  { "id": 4101, "name": "AP Physics 2", "course_code": "PHY-AP2", "teacher": "Dr. Ortega" },
+  { "id": 4102, "name": "AP Government", "course_code": "GOV-AP", "teacher": "Ms. Bennett" },
+  { "id": 4103, "name": "AP Calculus BC", "course_code": "CALC-BC", "teacher": "Mr. Shah" },
+  {
+    "id": 4104,
+    "name": "Engineering Fabrication",
+    "course_code": "EDD-FAB",
+    "teacher": "Mr. Alvarez"
+  },
+  {
+    "id": 4105,
+    "name": "English 12 Honors",
+    "course_code": "ENG-12H",
+    "teacher": "Ms. Holloway"
+  }
+]

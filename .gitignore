@@ -1,0 +1,22 @@
+node_modules/
+.pnpm-store/
+.svelte-kit/
+build/
+coverage/
+.wrangler/
+.DS_Store
+
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+*.log
+
+# Local runtime state can contain student records and must never be committed.
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite.backup

@@ -1,0 +1,48 @@
+services:
+  schoolday:
+    image: ${SCHOOLDAY_IMAGE:-ghcr.io/rryankees08/schoolday:latest}
+    build: .
+    pull_policy: missing
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      ORIGIN: ${ORIGIN:-http://localhost:3000}
+      SCHOOLDAY_DB_PATH: /data/schoolday.sqlite
+      SCHOOLDAY_DISPLAY_NAME: ${SCHOOLDAY_DISPLAY_NAME:-Student}
+      CANVAS_BASE_URL: ${CANVAS_BASE_URL:-}
+      CANVAS_TOKEN: ${CANVAS_TOKEN:-}
+      CANVAS_WEB_URL: ${CANVAS_WEB_URL:-}
+      STUDENTVUE_BASE_URL: ${STUDENTVUE_BASE_URL:-}
+      STUDENTVUE_USERNAME: ${STUDENTVUE_USERNAME:-}
+      STUDENTVUE_PASSWORD: ${STUDENTVUE_PASSWORD:-}
+      STUDENTVUE_WEB_URL: ${STUDENTVUE_WEB_URL:-}
+      BELLLOGIC_API_URL: ${BELLLOGIC_API_URL:-https://api.bell-logic.us}
+      BELLLOGIC_REQUEST_ORIGIN: ${BELLLOGIC_REQUEST_ORIGIN:-https://bell-logic.us}
+      BELLLOGIC_WEB_URL: ${BELLLOGIC_WEB_URL:-}
+    ports:
+      - '127.0.0.1:${SCHOOLDAY_PORT:-3000}:3000'
+    volumes:
+      - schoolday-data:/data
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    stop_grace_period: 15s
+
+volumes:
+  schoolday-data:

@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible problem using anonymized or fixture data.
+title: '[Bug]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Never include credentials, cookies, tokens, real student records, grades, course names, school identifiers, databases, or authenticated provider responses. Report security issues privately as described in SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Provide the release tag, container tag, or commit SHA.
+      placeholder: v0.1.0 or abc1234
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment
+      options:
+        - Docker image
+        - Docker Compose build
+        - Local development
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest reproduction possible, preferably using bundled or synthetic fixtures.
+      placeholder: |
+        1. Start SchoolDay with ...
+        2. Open ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Optional. Confirm that all secrets and personally identifying school data have been removed.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed all credentials, tokens, cookies, student data, school identifiers, and authenticated provider responses.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

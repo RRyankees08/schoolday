@@ -1,0 +1,42 @@
+[
+  {
+    "id": 81001,
+    "course_id": 4101,
+    "name": "Capacitor Bank Lab Analysis",
+    "due_at": "2026-08-10T18:00:00-07:00",
+    "points_possible": 50,
+    "html_url": "https://canvas.example.edu/courses/4101/assignments/81001"
+  },
+  {
+    "id": 81002,
+    "course_id": 4102,
+    "name": "Supreme Court Case Brief",
+    "due_at": "2026-08-11T08:00:00-07:00",
+    "points_possible": 30,
+    "html_url": "https://canvas.example.edu/courses/4102/assignments/81002"
+  },
+  {
+    "id": 81003,
+    "course_id": 4103,
+    "name": "Taylor Series Problem Set",
+    "due_at": "2026-08-13T23:59:00-07:00",
+    "points_possible": 20,
+    "html_url": "https://canvas.example.edu/courses/4103/assignments/81003"
+  },
+  {
+    "id": 81004,
+    "course_id": 4104,
+    "name": "Fabrication Process Plan",
+    "due_at": "2026-08-10T15:30:00-07:00",
+    "points_possible": 100,
+    "html_url": "https://canvas.example.edu/courses/4104/assignments/81004"
+  },
+  {
+    "id": 81005,
+    "course_id": 4105,
+    "name": "Personal Narrative Revision",
+    "due_at": "2026-08-12T15:00:00-07:00",
+    "points_possible": 40,
+    "html_url": "https://canvas.example.edu/courses/4105/assignments/81005"
+  }
+]

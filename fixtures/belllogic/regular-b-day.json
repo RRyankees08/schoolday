@@ -1,0 +1,18 @@
+{
+  "schedule_id": "regular-b",
+  "schedule_name": "Regular B Day",
+  "day_type": "B",
+  "is_school_day": true,
+  "periods": [
+    { "id": "B1", "label": "AP Calculus BC", "starts": "08:15", "ends": "09:47" },
+    { "id": "B2", "label": "English 12 Honors", "starts": "09:52", "ends": "11:24" },
+    { "id": "BL", "label": "Lunch", "starts": "11:24", "ends": "11:59" },
+    { "id": "B4", "label": "AP Government", "starts": "11:59", "ends": "13:31" },
+    {
+      "id": "B5",
+      "label": "Engineering Fabrication",
+      "starts": "13:36",
+      "ends": "15:08"
+    }
+  ]
+}
