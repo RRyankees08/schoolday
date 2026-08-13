@@ -1,7 +1,7 @@
 {
   "name": "schoolday",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A self-hosted daily dashboard for school schedules, assignments, and grades.",
   "license": "MIT",
   "type": "module",
