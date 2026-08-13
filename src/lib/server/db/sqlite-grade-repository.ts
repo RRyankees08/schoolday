@@ -74,11 +74,12 @@ export class SQLiteGradeRepository implements SchoolDayRepository {
 
   private migrate(migrationsDirectory: string): void {
     const version = this.db.prepare('PRAGMA user_version').get() as { user_version: number };
-    for (let next = version.user_version + 1; next <= 2; next += 1) {
+    const migrations = ['initial', 'studentvue_cache', 'studentvue_link_cells'];
+    for (let next = version.user_version + 1; next <= migrations.length; next += 1) {
       const migration = readFileSync(
         resolve(
           migrationsDirectory,
-          `${String(next).padStart(4, '0')}_${next === 1 ? 'initial' : 'studentvue_cache'}.sql`
+          `${String(next).padStart(4, '0')}_${migrations[next - 1]}.sql`
         ),
         'utf8'
       );

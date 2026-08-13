@@ -73,6 +73,15 @@ describe('grade-change detection', () => {
     ]);
   });
 
+  it('ignores a newly created assignment that has not been graded', () => {
+    const changes = detectGradeChanges(
+      snapshot(),
+      snapshot([], [gradebookAssignment({ pointsPossible: 1, capturedAt: afterTime })], afterTime)
+    );
+
+    expect(changes).toEqual([]);
+  });
+
   it('detects an assignment score correction as one meaningful event', () => {
     const changes = detectGradeChanges(
       snapshot([], [gradebookAssignment({ pointsEarned: 15, percentage: 75 })]),

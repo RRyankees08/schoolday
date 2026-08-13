@@ -59,6 +59,21 @@ function textValue(value: unknown): string | undefined {
   return text || undefined;
 }
 
+function gridCellValue(value: unknown): unknown {
+  if (typeof value !== 'string') return value;
+  const source = value.trim();
+  if (!source.startsWith('{')) return value;
+
+  try {
+    const parsed: unknown = JSON.parse(source);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return value;
+    const cell = parsed as Record<string, unknown>;
+    return cell.value ?? cell.text ?? cell.displayValue;
+  } catch {
+    return value;
+  }
+}
+
 function numberValue(value: unknown): number | undefined {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   const text = textValue(value);
@@ -210,10 +225,10 @@ function normalizeAssignment(
   courseId: string,
   capturedAt: string
 ): GradebookAssignment | undefined {
-  const title = textValue(rowValue(row, 'GBAssignment', 'Assignment', 'Title'));
+  const title = textValue(gridCellValue(rowValue(row, 'GBAssignment', 'Assignment', 'Title')));
   if (!title) return undefined;
 
-  const score = rowValue(row, 'GBScore', 'Score', 'PointsEarned');
+  const score = gridCellValue(rowValue(row, 'GBScore', 'Score', 'PointsEarned'));
   const possible = rowValue(row, 'GBPoints', 'Points', 'PointsPossible');
   const status = [
     textValue(rowValue(row, 'GBScoreType', 'ScoreType')),

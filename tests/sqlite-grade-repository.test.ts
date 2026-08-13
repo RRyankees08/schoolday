@@ -1,6 +1,7 @@
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
 import type { CanvasSnapshot, GradeChange, GradeSnapshot } from '$lib/models';
 import { SQLiteGradeRepository } from '$lib/server/db/sqlite-grade-repository';
@@ -150,6 +151,58 @@ describe('SQLiteGradeRepository', () => {
 
     const reopened = new SQLiteGradeRepository(path);
     expect(await reopened.getLatestStudentVueSnapshot()).toEqual(studentVueSnapshot);
+    reopened.close();
+  });
+
+  it('removes grade activity created from serialized StudentVUE link cells', async () => {
+    const { path, repository } = createRepository();
+    const corruptTitle = JSON.stringify({
+      href: 'javascript:',
+      hrefAttributes: 'data-focus={"LoadParams":{"ControlName":"AssignmentDetail6"}}',
+      value: 'Design Brief',
+      dataType: 'LinkColumn'
+    });
+    const corruptSnapshot: GradeSnapshot = {
+      ...snapshot,
+      assignments: [
+        {
+          ...snapshot.assignments[0],
+          title: corruptTitle,
+          pointsEarned: 6,
+          pointsPossible: 1,
+          percentage: 600
+        }
+      ]
+    };
+    await repository.saveSnapshot(corruptSnapshot);
+    await repository.saveStudentVueSnapshot({
+      capturedAt: corruptSnapshot.capturedAt,
+      courses: [],
+      snapshot: corruptSnapshot
+    });
+    await repository.appendGradeChanges([
+      {
+        id: 'corrupt-assignment-grade',
+        courseId: 'math',
+        detectedAt: corruptSnapshot.capturedAt,
+        type: 'assignment_graded',
+        previousValue: null,
+        currentValue: '6 / 1',
+        assignmentId: 'quiz-1',
+        assignmentTitle: corruptTitle,
+        acknowledged: false
+      }
+    ]);
+    repository.close();
+
+    const database = new DatabaseSync(path);
+    database.exec('PRAGMA user_version = 2');
+    database.close();
+
+    const reopened = new SQLiteGradeRepository(path);
+    expect((await reopened.getLatestSnapshot())?.assignments).toEqual([]);
+    expect(await reopened.getLatestStudentVueSnapshot()).toBeNull();
+    expect(await reopened.listGradeChanges()).toEqual([]);
     reopened.close();
   });
 
