@@ -60,6 +60,26 @@ function assignmentDetail(classID: number): string {
             GBPoints: '15',
             GBScoreType: 'Missing',
             GBNotes: ''
+          },
+          {
+            gradeBookId: 'assignment-3',
+            GBAssignment: JSON.stringify({
+              href: 'javascript:',
+              hrefAttributes:
+                'data-focus={"LoadParams":{"ControlName":"Gradebook_AssignmentDetail"}}',
+              value: 'Design Brief',
+              dataType: 'LinkColumn'
+            }),
+            GBScore: JSON.stringify({
+              href: 'javascript:',
+              hrefAttributes:
+                'data-focus={"LoadParams":{"ControlName":"Gradebook_AssignmentDetail6"}}',
+              value: 'Not Due',
+              dataType: 'LinkColumn'
+            }),
+            GBPoints: '1.00 Points Possible',
+            GBScoreType: '',
+            GBNotes: ''
           }
         ]
       : [];
@@ -159,8 +179,17 @@ describe('StudentVUE web provider', () => {
         title: 'Lab Report',
         pointsPossible: 15,
         missing: true
+      }),
+      expect.objectContaining({
+        id: 'studentvue:assignment-3',
+        title: 'Design Brief',
+        pointsPossible: 1,
+        missing: false
       })
     ]);
+    const ungraded = assignments.find((assignment) => assignment.id === 'studentvue:assignment-3');
+    expect(ungraded?.pointsEarned).toBeUndefined();
+    expect(ungraded?.percentage).toBeUndefined();
     expect(snapshot).toMatchObject({ capturedAt: '2026-08-10T16:00:00.000Z' });
     expect(
       request.mock.calls.filter(([input]) => String(input).includes('Login_Student')).length
