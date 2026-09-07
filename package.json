@@ -19,7 +19,7 @@
   "homepage": "https://github.com/RRyankees08/schoolday#readme",
   "dependencies": {
     "cheerio": "^1.2.0",
-    "zod": "^4.4.3"
+    "zod": "^4.5.4"
   },
   "scripts": {
     "dev": "vite dev",
